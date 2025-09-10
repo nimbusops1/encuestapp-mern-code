@@ -8,7 +8,7 @@ on:
       - 'backend/**'
 
 env:
-  IMAGE_NAME: nimbusops1/backend-encuestapp-mern-ecmascript6 #usuariodockerhub/nombreProyecto
+  IMAGE_NAME: nimbus2025/backend-encuestapp-mern-ecmascript6 #usuariodockerhub/nombreProyecto
   MANIFESTS_REPO: nimbusops1/encuestapp-k8s-ECMAScript6 #aca declaramos el repositorio donde vamos a guardar los manifiestos
 
 jobs:

@@ -9,7 +9,7 @@ on:
 
 env:
   IMAGE_NAME: nimbus2025/backend-encuestapp-mern-ecmascript6 #usuariodockerhub/nombreProyecto
-  MANIFESTS_REPO: nimbusops1/encuestapp-k8s-ECMAScript6 #aca declaramos el repositorio donde vamos a guardar los manifiestos
+  MANIFESTS_REPO: nimbusops1/encuestapp-mern-k8s #aca declaramos el repositorio donde vamos a guardar los manifiestos
 
 jobs:
   build-publish-patch:
@@ -70,7 +70,7 @@ jobs:
         with:
           repository: ${{ env.MANIFESTS_REPO }}
           token: ${{ secrets.K8S_REPO_PAT }}
-          path: encuestapp-k8s-ECMAScript6    # <- Cambiar este path para que coincida con el nuevo nombre
+          path: encuestapp-mern-k8s    # <- Cambiar este path para que coincida con el nuevo nombre
           ref: main # <- especificás explícitamente la rama
           
       - name: Parchar el deployment con el nuevo tag
@@ -82,7 +82,7 @@ jobs:
 
       - name: Commit & Push de los manifiestos parchados
         run: |
-          cd encuestapp-k8s-ECMAScript6    
+          cd encuestapp-mern-k8s   
           git config user.email "ci@github.com"
           git config user.name "GitHub Actions"
           git add overlays/${{ steps.overlay.outputs.overlay }}/patch-back-deployment.yaml
